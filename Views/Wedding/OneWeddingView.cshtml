@@ -1,0 +1,15 @@
+@model Wedding
+<div>
+  <h1>@Model.WedderOne and @Model.WedderTwo's Wedding</h1>
+  <a asp-action="Success" asp-controller="Wedding">Dashboard</a>
+  <a asp-action="Logout" asp-controller="User">Logout</a>
+</div>
+<h5 class="text-center">Date: @Model.WeddingDate.ToString("MMMM dd, yyyy")</h5>
+<h5 class="text-center">Address: @Model.Address</h5>
+<h5 class="text-center">Guests:</h5>
+<ul>
+  @foreach (var user in ViewBag.RSVPUsers)
+  {
+    <li>@user.FirstName @user.LastName</li>
+  }
+</ul>
